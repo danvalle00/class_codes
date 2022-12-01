@@ -29,7 +29,6 @@ int main(void)
     // colocando em ordem crescente os valores das matrizes
     qsort(mA, TAMANHO, sizeof(int), cmpfunc);
     qsort(mB, TAMANHO, sizeof(int), cmpfunc);
-
     puts("Os valores que estão em A e em B são: ");
 
     // Colocando na tela os valores de A que estão em B
@@ -43,4 +42,5 @@ int main(void)
     }
 
     return 0;
+
 }
