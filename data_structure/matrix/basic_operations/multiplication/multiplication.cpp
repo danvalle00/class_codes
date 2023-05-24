@@ -2,10 +2,10 @@
 #include <ctime>
 #include <cstdlib>
 
-#define ROWS1 2
-#define COLS1 2
-#define ROWS2 2
-#define COLS2 2
+#define ROWS1 3
+#define COLS1 3
+#define ROWS2 3
+#define COLS2 3
 
 void check_matrix(int matrix1[][COLS1], int matrix2[][COLS2]);
 void insert_matrixes_data(int matrix1[][COLS1], int matrix2[][COLS2]);
@@ -56,9 +56,8 @@ void matrix_multiplication(int matrix1[][COLS1], int matrix2[][COLS2], int resul
         for (int c1 = 0; c1 < COLS2; c1++)
         {
             result[r1][c1] = matrix1[r1][c1] * matrix2[r1][c1] + matrix1[r1][c1 + 1] * matrix2[r1 + 1][c1];
-            // ! a primeira linha e primeira coluna funciona legal mas depois ta dando uns bugs, como, pegando lixo de lugar random da memoria ou multiplicando o valor errado tipo 7x7 do nada
-            // ? Procurar melhorar a logica, começou legal mas depois não funciona direito
-            // TODO: Consertar essa porra.
+            // ? Essa lógica está funcionando pra matrizes que não são quadradas.
+            // ? Mas dependendo do tamanho da matrix ela deixa de funcionar também.
         }
     }
 }
