@@ -1,0 +1,84 @@
+Exercício 3:
+Em Python:
+
+class SistemaEspecialista:
+    def __init__(self):
+        self.base_conhecimento = {
+            "Engenharia Civil": {
+                "areas": ["ciencias_exatas"],
+                "objetivos": ["industria", "pesquisa"],
+            },
+            "Psicologia": {"areas": ["humanas"], "objetivos": ["docencia", "pesquisa"]},
+            "Biologia": {"areas": ["biologicas"], "objetivos": ["pesquisa"]},
+            "Administração": {"areas": ["humanas"], "objetivos": ["industria"]},
+            "Matemática": {"areas": ["ciencias_exatas"], "objetivos": ["docencia"]},
+        }
+
+    def recomendar_curso(self, estudante):
+        for curso, requisitos in self.base_conhecimento.items():
+            if (
+                estudante["area_interesse"] in requisitos["areas"]
+                and estudante["objetivos_profissionais"] in requisitos["objetivos"]
+            ):
+                estudante["curso_recomendado"] = curso
+                break
+
+        return estudante
+
+
+se = SistemaEspecialista()
+estudante1 = {
+    "nome": "João",
+    "area_interesse": "ciencias_exatas",
+    "objetivos_profissionais": "industria",
+}
+
+
+curso_recomendado = se.recomendar_curso(estudante1)
+print(f"Cursos Recomendados para o Estudante {estudante1['nome']}: {curso_recomendado["curso_recomendado"]}")
+
+Em Prolog:
+
+estudante(joao).
+
+curso(engenharia_civil).
+curso(psicologia).
+curso(biologia).
+curso(administracao).
+curso(matematica).
+
+objetivo(industria).
+objetivo(pesquisa).
+objetivo(docencia).
+
+area(humanas).
+area(biologicas).
+area(ciencia_exatas).
+
+recomendar(Estudante, engenharia_civil):-
+    estudante_objetivo(Estudante, industria),
+    estudante_objetivo(Estudante, pesquisa),
+    estudante_area(Estudante, ciencia_exatas).
+
+recomendar(Estudante, psicologia):-
+    estudante_objetivo(Estudante, docencia),
+    estudante_objetivo(Estudante, pesquisa),
+    estudante_area(Estudante, humanas).
+
+recomendar(Estudante, biologia) :-
+    estudante_objetivo(Estudante, pesquisa),
+    estudante_objetivo(Estudante, docencia),
+    estudante_area(Estudante, biologicas).
+
+recomendar(Estudante, matematica) :-
+    estudante_objetivo(Estudante, pesquisa),
+    estudante_objetivo(Estudante, docencia),
+    estudante_area(Estudante, ciencia_exatas).
+recomendar(Estudante, administracao) :-
+    estudante_objetivo(Estudante, industria),
+    estudante_area(Estudante, humanas).
+
+
+estudante_objetivo(joao, pesquisa).
+estudante_objetivo(joao, docencia).
+estudante_area(joao, ciencia_exatas).
